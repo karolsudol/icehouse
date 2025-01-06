@@ -15,11 +15,14 @@ This project sets up a complete data lakehouse solution for Solana blockchain da
 - Dune Analytics as data source
 
 ## Prerequisites
-- Docker & Docker Compose
-- kubectl
-- Helm
+- Docker & Docker Compose v2.0+
+- kubectl v1.25+
+- Helm v3.0+
 - Python 3.9+
 - Make (optional)
+- Dune Analytics API key
+
+## Project Structure
 
 ## Project Structure
 
@@ -29,7 +32,16 @@ icehouse/
 
 ## Quick Start
 
-1. Clone the repository:
+1. Clone the repository: 
+2. python -m venv .venv
+source .venv/bin/activate
+
+pip install -r requirements.txt
+
+# This will install apache-airflow-providers-cosmos and its dependencies.
+
+# To deactivate the virtual environment when you're done:
+deactivate
 
 
 
