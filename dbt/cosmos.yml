@@ -1,0 +1,27 @@
+cosmos_config:
+  target_folder: "../airflow/dags/cosmos"  # Where Cosmos will generate the DAG files
+  default_args:
+    owner: "dbt"
+    retries: 2
+    retry_delay: 5
+  schedule_interval: "@daily"
+  dag_configs:
+    solana:
+      schedule_interval: "@daily"
+      tasks:
+        - name: "daily_transactions"
+          model: "solana.daily_transactions"
+    solana_ingestion:
+      schedule_interval: "@daily"
+      tasks:
+        - name: "get_dune_api_key"
+          operator: "airflow.operators.python.PythonOperator"
+          python_callable: "get_dune_api_key"
+        - name: "fetch_solana_data"
+          operator: "airflow.operators.python.PythonOperator"
+          python_callable: "fetch_data_from_dune"
+          dependencies: ["get_dune_api_key"]
+        - name: "write_to_iceberg"
+          operator: "airflow.operators.python.PythonOperator"
+          python_callable: "write_to_iceberg"
+          dependencies: ["fetch_solana_data"] 

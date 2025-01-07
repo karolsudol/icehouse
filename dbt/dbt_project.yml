@@ -19,4 +19,8 @@ clean-targets:
 models:
   icehouse:
     solana:
-      +materialized: table 
+      +materialized: table
+      +on_schema_change: "sync_all_columns"
+
+vars:
+  cosmos_target: 'dev' 
