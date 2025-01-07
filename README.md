@@ -27,51 +27,51 @@ This project utilizes:
 ## Project Structure
 
 icehouse/
-├── airflow/             # Airflow DAGs and related files
-│   ├── dags/            # Your Airflow DAGs (workflows)
-│   │   └── ingest_solana_data.py  # Airflow DAG for data ingestion
-│   │   └── transform_data.py      # Airflow DAG for data transformation
-│   ├── plugins/         # (Optional) Custom Airflow plugins
-│   └── config/          # Airflow configuration overrides
-├── dbt/                 # dbt project
-│   ├── models/          # dbt models (SQL transformations)
-│   │   ├── staging/
-│   │   │   └── stg_solana_transactions.sql  # Staging model for raw data
-│   │   ├── intermediate/
-│   │   │   └── int_daily_active_accounts.sql  # Intermediate model with business logic
-│   │   └── final/
-│   │       └── fact_account_summary.sql      # Final model ready for analysis
-│   ├── macros/                     # Reusable SQL snippets for dbt models
-│   ├── analyses/                  # Exploratory queries using dbt
-│   ├── seeds/                      # Small lookup tables for dbt
-│   ├── tests/                      # dbt tests for data quality checks
-│   └── dbt_project.yml             # dbt project configuration
-├── iceberg/             # Iceberg table schema definitions (optional)
-│   └── schema/                    # Iceberg table schema definitions (optional)
-│       └── transactions.avsc
-├── k8s/                            # Kubernetes manifests
-│   ├── trino/
-│   │   ├── charts/                  # Helm chart for deploying Trino
-│   │   │   ├── templates/            # Kubernetes deployment manifests for Trino
-│   │   │   │   ├── deployment.yaml
-│   │   │   │   └── service.yaml
-│   │   │   └── values.yaml           # Default configuration values for Trino Helm chart
-│   │   └── ...                     # Additional Kubernetes resources for Trino (if needed)
-│   └── metastore/                  # Kubernetes manifests for metastore (optional)
-│       └── metastore-deployment.yaml
-├── trino/
-│   └── queries/                    # Example Trino queries
-│       └── analyze_account_activity.sql
-├── scripts/
-│   └── ingest_from_blockchain.py    # Script for data ingestion from blockchain
-├── data/
-│   └── sample_transactions.json     # Sample data for testing (small dataset)
-├── tests/
-│   └── test_ingestion.py           # Unit test for data ingestion script
-├── Dockerfile                      # Dockerfile for containerization (optional)
-├── docker-compose.yml             # Docker Compose for local development (simplified)
-├── requirements.txt                # Python dependencies
-└── README.md                       # Project documentation
+├── **airflow/**             _# Airflow DAGs and related files_
+│   ├── **dags/**            _# Your Airflow DAGs (workflows)_
+│   │   ├── **ingest_solana_data.py**  _# Airflow DAG for data ingestion_
+│   │   └── **transform_data.py**      _# Airflow DAG for data transformation_
+│   ├── **plugins/**         _# (Optional) Custom Airflow plugins_
+│   └── **config/**          _# Airflow configuration overrides_
+├── **dbt/**                 _# dbt project_
+│   ├── **models/**          _# dbt models (SQL transformations)_
+│   │   ├── **staging/**_
+│   │   │   └── **stg_solana_transactions.sql**  _# Staging model for raw data_
+│   │   ├── **intermediate/**_
+│   │   │   └── **int_daily_active_accounts.sql**  _# Intermediate model with business logic_
+│   │   └── **final/**_
+│   │       └── **fact_account_summary.sql**      _# Final model ready for analysis_
+│   ├── **macros/**                     _# Reusable SQL snippets for dbt models_
+│   ├── **analyses/**                  _# Exploratory queries using dbt_
+│   ├── **seeds/**                      _# Small lookup tables for dbt_
+│   ├── **tests/**                      _# dbt tests for data quality checks_
+│   └── **dbt_project.yml**             _# dbt project configuration_
+├── **iceberg/**             _# Iceberg table schema definitions (optional)_
+│   └── **schema/**                    _# Iceberg table schema definitions (optional)_
+│       └── **transactions.avsc**
+├── **k8s/**                            _# Kubernetes manifests_
+│   ├── **trino/**_
+│   │   ├── **charts/**                  _# Helm chart for deploying Trino_
+│   │   │   ├── **templates/**            _# Kubernetes deployment manifests for Trino_
+│   │   │   │   ├── **deployment.yaml**
+│   │   │   │   └── **service.yaml**
+│   │   │   └── **values.yaml**           _# Default configuration values for Trino Helm chart_
+│   │   └── ...                     _# Additional Kubernetes resources for Trino (if needed)_
+│   └── **metastore/**                  _# Kubernetes manifests for metastore (optional)_
+│       └── **metastore-deployment.yaml**
+├── **trino/**_
+│   └── **queries/**                    _# Example Trino queries_
+│       └── **analyze_account_activity.sql**
+├── **scripts/**_
+│   └── **ingest_from_blockchain.py**    _# Script for data ingestion from blockchain_
+├── **data/**_
+│   └── **sample_transactions.json**     _# Sample data for testing (small dataset)_
+├── **tests/**_
+│   └── **test_ingestion.py**           _# Unit test for data ingestion script_
+├── **Dockerfile**                      _# Dockerfile for containerization (optional)_
+├── **docker-compose.yml**             _# Docker Compose for local development (simplified)_
+├── **requirements.txt**                _# Python dependencies_
+└── **README.md**                       _# Project documentation_
 
 
 ## Quick Start
